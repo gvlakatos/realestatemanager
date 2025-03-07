@@ -1,0 +1,11 @@
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/bin/Debug/net9.0/RealEstate.Domain.deps.json
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/bin/Debug/net9.0/RealEstate.Domain.dll
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/bin/Debug/net9.0/RealEstate.Domain.pdb
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/obj/Debug/net9.0/RealEstate.Domain.GeneratedMSBuildEditorConfig.editorconfig
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/obj/Debug/net9.0/RealEstate.Domain.AssemblyInfoInputs.cache
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/obj/Debug/net9.0/RealEstate.Domain.AssemblyInfo.cs
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/obj/Debug/net9.0/RealEstate.Domain.csproj.CoreCompileInputs.cache
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/obj/Debug/net9.0/RealEstate.Domain.dll
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/obj/Debug/net9.0/refint/RealEstate.Domain.dll
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/obj/Debug/net9.0/RealEstate.Domain.pdb
+/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Domain/obj/Debug/net9.0/ref/RealEstate.Domain.dll
