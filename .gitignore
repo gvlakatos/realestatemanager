@@ -1,0 +1,40 @@
+/RealEstateManager.sln
+# 🌟 Pastas e arquivos do Rider
+.idea/
+*.sln.iml
+
+# 🔹 Build e Debug
+bin/
+obj/
+.vscode/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.cache
+
+# ⚙️ Configurações específicas
+*.db
+*.log
+*.bak
+*.tmp
+*.swp
+*.lock
+*.pid
+
+# 📂 Configurações locais do Rider
+.idea/workspace.xml
+.idea/gradle.xml
+.idea/libraries/
+.idea/modules.xml
+.idea/misc.xml
+
+# 🔐 Arquivos sensíveis (não devem ir para o repositório)
+appsettings.json
+appsettings.*.json
+.env
+
+# 🏗️ Dependências do Rider (se aplicável)
+.idea/modules.xml
+.idea/.name
