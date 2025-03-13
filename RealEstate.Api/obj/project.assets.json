@@ -5154,32 +5154,34 @@
     ]
   },
   "packageFolders": {
-    "/Users/gabriellakatos/.nuget/packages/": {}
+    "C:\\Users\\gabri\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Api/RealEstate.Api.csproj",
+      "projectUniqueName": "F:\\Dev\\realestatemanager\\RealEstate.Api\\RealEstate.Api.csproj",
       "projectName": "RealEstate.Api",
-      "projectPath": "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Api/RealEstate.Api.csproj",
-      "packagesPath": "/Users/gabriellakatos/.nuget/packages/",
-      "outputPath": "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Api/obj/",
+      "projectPath": "F:\\Dev\\realestatemanager\\RealEstate.Api\\RealEstate.Api.csproj",
+      "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+      "outputPath": "F:\\Dev\\realestatemanager\\RealEstate.Api\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/gabriellakatos/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/RealEstate.Core.csproj": {
-              "projectPath": "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/RealEstate.Core.csproj"
+            "F:\\Dev\\realestatemanager\\RealEstate.Core\\RealEstate.Core.csproj": {
+              "projectPath": "F:\\Dev\\realestatemanager\\RealEstate.Core\\RealEstate.Core.csproj"
             }
           }
         }
@@ -5193,8 +5195,7 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.200"
+      }
     },
     "frameworks": {
       "net9.0": {
@@ -5238,7 +5239,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

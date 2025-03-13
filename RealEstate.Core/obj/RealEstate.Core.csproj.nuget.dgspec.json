@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/RealEstate.Core.csproj": {}
+    "F:\\Dev\\realestatemanager\\RealEstate.Core\\RealEstate.Core.csproj": {}
   },
   "projects": {
-    "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/RealEstate.Core.csproj": {
+    "F:\\Dev\\realestatemanager\\RealEstate.Core\\RealEstate.Core.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/RealEstate.Core.csproj",
+        "projectUniqueName": "F:\\Dev\\realestatemanager\\RealEstate.Core\\RealEstate.Core.csproj",
         "projectName": "RealEstate.Core",
-        "projectPath": "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/RealEstate.Core.csproj",
-        "packagesPath": "/Users/gabriellakatos/.nuget/packages/",
-        "outputPath": "/Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/obj/",
+        "projectPath": "F:\\Dev\\realestatemanager\\RealEstate.Core\\RealEstate.Core.csproj",
+        "packagesPath": "C:\\Users\\gabri\\.nuget\\packages\\",
+        "outputPath": "F:\\Dev\\realestatemanager\\RealEstate.Core\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/gabriellakatos/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\gabri\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -37,8 +39,7 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net9.0": {
@@ -59,7 +60,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/9.0.200/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

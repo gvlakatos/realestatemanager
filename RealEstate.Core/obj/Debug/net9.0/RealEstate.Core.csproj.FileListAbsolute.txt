@@ -9,3 +9,15 @@
 /Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/obj/Debug/net9.0/refint/RealEstate.Core.dll
 /Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/obj/Debug/net9.0/RealEstate.Core.pdb
 /Users/gabriellakatos/Documents/Workspace/RealEstateManager/RealEstate.Core/obj/Debug/net9.0/ref/RealEstate.Core.dll
+F:\Dev\realestatemanager\RealEstate.Core\bin\Debug\net9.0\RealEstate.Core.deps.json
+F:\Dev\realestatemanager\RealEstate.Core\bin\Debug\net9.0\RealEstate.Core.dll
+F:\Dev\realestatemanager\RealEstate.Core\bin\Debug\net9.0\RealEstate.Core.pdb
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\RealEstate.Core.GeneratedMSBuildEditorConfig.editorconfig
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\RealEstate.Core.AssemblyInfoInputs.cache
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\RealEstate.Core.AssemblyInfo.cs
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\RealEstate.Core.csproj.CoreCompileInputs.cache
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\RealEstate.Core.sourcelink.json
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\RealEstate.Core.dll
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\refint\RealEstate.Core.dll
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\RealEstate.Core.pdb
+F:\Dev\realestatemanager\RealEstate.Core\obj\Debug\net9.0\ref\RealEstate.Core.dll
