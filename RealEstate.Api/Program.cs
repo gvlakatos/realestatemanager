@@ -1,43 +1,25 @@
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using RealEstate.Api.Data;
+using RealEstate.Api.Commom.Api;
 using RealEstate.Api.Endpoints;
-using RealEstate.Api.Handlers;
-using RealEstate.Api.Models;
-using RealEstate.Core.Handlers;
+using RealEstate.Core;
 
 var builder = WebApplication.CreateBuilder(args);
-
-var cnnStr = builder.Configuration.GetConnectionString("DefaultConnection") ?? string.Empty;
-
-builder.Services.AddDbContext<AppDbContext>(options =>
-{
-    options.UseSqlServer(cnnStr);
-});
-
-builder.Services.AddIdentityCore<User>().AddRoles<IdentityRole<long>>().AddEntityFrameworkStores<AppDbContext>().AddApiEndpoints();
-
-builder.Services.AddTransient<IOwnerHandler, OwnerHandler>();
-builder.Services.AddTransient<ITenantHandler, TenantHandler>();
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen(x => x.CustomSchemaIds(n => n.FullName));
-
-builder.Services.AddAuthentication(IdentityConstants.ApplicationScheme).AddIdentityCookies();
-builder.Services.AddAuthorization();
+// Necessário manter na ordem abaixo
+builder.AddConfiguration();
+builder.AddSecurity();
+builder.AddDataContexts();
+builder.AddCrossOrigin();
+builder.AddDocumentation();
+builder.AddServices();
 
 builder.Services.AddControllers();
 
 var app = builder.Build();
 
-app.UseAuthentication();
-app.UseAuthorization();
+if (app.Environment.IsDevelopment())
+    app.ConfigureDevEnvironment();
 
-app.UseSwagger();
-app.UseSwaggerUI();
-
-app.UseHttpsRedirection();
-app.MapGet("/", () => new { message = "Ok" });
+app.UseCors(Configuration.CorsPolicyName);
+app.UseSecurity();
 app.MapEndpoints();
 
 app.Run();
