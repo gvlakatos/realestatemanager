@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace RealEstate.Infrastructure.Migrations
+namespace RealEstate.Api.Migrations
 {
     /// <inheritdoc />
     public partial class v1 : Migration

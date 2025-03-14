@@ -6,11 +6,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RealEstate.Api.Data;
-using RealEstate.Infrastructure.Data;
 
 #nullable disable
 
-namespace RealEstate.Infrastructure.Migrations
+namespace RealEstate.Api.Migrations
 {
     [DbContext(typeof(AppDbContext))]
     [Migration("20250228181428_v1")]

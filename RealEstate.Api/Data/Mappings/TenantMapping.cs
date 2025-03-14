@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using RealEstate.Core.Models;
 
-namespace RealEstate.Infrastructure.Data.Mappings;
+namespace RealEstate.Api.Data.Mappings;
 
 public class TenantMapping : IEntityTypeConfiguration<Tenant>
 {
