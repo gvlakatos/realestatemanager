@@ -4,6 +4,9 @@ namespace RealEstate.Web;
 
 public static class Configuration
 {
+    public const string HttpClientName = "realEstateClient";
+    public static string BackendUrl { get; set; } = string.Empty;
+    
     public static MudTheme Theme = new MudTheme
     {
         PaletteLight = new PaletteLight

@@ -1,5 +1,6 @@
 @page "/register"
 @layout HeadlessLayout
+@inherits RegisterPage
 
 <PageTitle>Entrar</PageTitle>
 
@@ -10,22 +11,24 @@
                 <MudImage Src="imgs/logo.png" Width="200"/>
             </div>
             
-            <MudForm @ref="_mudForm">
-                <MudTextField T="string" Label="E-mail" Placeholder="exemplo@email.com" Required="true" InputType="InputType.Email" RequiredError="Obrigatório informar um e-mail"/>
-                <MudTextField T="string" Label="Senha" Placeholder="123456" Required="true" InputType="InputType.Password" RequiredError="Obrigatorio informar uma senha"></MudTextField>
-            </MudForm>
-            
-            <div class="d-flex mt-8">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary">Cadastrar</MudButton>
-                <MudSpacer/>
-                <MudButton Href="/login" Variant="Variant.Filled" Color="Color.Default">Já tenho uma conta</MudButton>
-            </div>
+            <EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
+                <DataAnnotationsValidator/>
+                <MudTextField T="string" Label="E-mail" HelperText="exemplo@email.com" InputType="InputType.Email" For="@(() => InputModel.Email)" @bind-Value="InputModel.Email"/>
+                <MudTextField T="string" Label="Senha" HelperText="123456" InputType="InputType.Password" For="@(() => InputModel.Password)" @bind-Value="InputModel.Password"/>
+                
+                <div class="d-flex mt-8">
+                    @if (IsBusy)
+                    {
+                        <MudProgressCircular Color="Color.Info" Indeterminate="true"/>
+                    }
+                    else
+                    {
+                        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Cadastrar</MudButton>
+                        <MudSpacer/>
+                        <MudButton Href="/login" Variant="Variant.Filled" Color="Color.Default">Já tenho uma conta</MudButton>
+                    }
+                </div>
+            </EditForm>
         </MudPaper>
     </MudItem>
 </MudGrid>
-
-@code {
-
-    MudForm? _mudForm;
-
-}
