@@ -1,0 +1,21 @@
+@page "/logout"
+@inherits LogoutPage
+@layout HeadlessLayout
+
+<PageTitle>Sair</PageTitle>
+
+<MudText Typo="Typo.h3" Class="d-flex justify-center">Finalizando sessão...</MudText>
+<MudPaper Class="pa-8 mt-4">
+    @* <div class="d-flex jusfity-center pb-8 pt-8"> *@
+    @*      *@
+    @* </div> *@
+    <MudAlert Severity="Severity.Info">
+        <div>
+            Sessão finalizada...
+            <br/>
+            <MudButton Variant="Variant.Text" Href="/">
+                Ir para tela de login
+            </MudButton>
+        </div>
+    </MudAlert>
+</MudPaper>

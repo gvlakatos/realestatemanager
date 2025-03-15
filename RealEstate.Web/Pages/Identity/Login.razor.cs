@@ -6,7 +6,7 @@ using RealEstate.Web.Security;
 
 namespace RealEstate.Web.Pages.Identity;
 
-public partial class RegisterPage : ComponentBase
+public partial class LoginPage : ComponentBase
 {
     #region Dependencies
     
@@ -23,11 +23,11 @@ public partial class RegisterPage : ComponentBase
     public ICookieAuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
 
     #endregion
-
+    
     #region Properties
     
     public bool IsBusy { get; set; } = false;
-    public RegisterRequest InputModel { get; set; } = new();
+    public LoginRequest InputModel { get; set; } = new();
     
     #endregion
     
@@ -43,7 +43,7 @@ public partial class RegisterPage : ComponentBase
     }
     
     #endregion
-
+    
     #region Methods
     
     public async Task OnValidSubmitAsync()
@@ -53,12 +53,14 @@ public partial class RegisterPage : ComponentBase
         try
         {
             
-            var result = await Handler.RegisterAsync(InputModel);
+            var result = await Handler.LoginAsync(InputModel);
 
             if (result.IsSuccess)
             {
+                await AuthenticationStateProvider.GetAuthenticationStateAsync();
+                AuthenticationStateProvider.NotifyAuthenticationStateChanged();
+                NavigationManager.NavigateTo("/"); 
                 Snackbar.Add(result.Message, Severity.Success);
-                NavigationManager.NavigateTo("/login"); 
             }
             else
             {
