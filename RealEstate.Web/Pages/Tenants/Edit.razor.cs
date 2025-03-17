@@ -1,14 +1,13 @@
 using Microsoft.AspNetCore.Components;
 using MudBlazor;
 using RealEstate.Core.Handlers;
-using RealEstate.Core.Requests.Owners;
 using RealEstate.Core.Requests.Tenants;
 
 namespace RealEstate.Web.Pages.Tenants;
 
 public partial class EditTenantPage : ComponentBase
 {
-     #region Parameters
+    #region Parameters
 
     [Parameter]
     public string Id { get; set; }

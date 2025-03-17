@@ -9,7 +9,7 @@ namespace RealEstate.Api.Endpoints.Owners;
 public class UpdateOwnerEndpoint : IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
-        => app.MapPut("{id}", HandleAsync)
+        => app.MapPut("/{id}", HandleAsync)
             .WithName("Owners: Update")
             .WithSummary("Update an existing owner")
             .WithOrder(2)

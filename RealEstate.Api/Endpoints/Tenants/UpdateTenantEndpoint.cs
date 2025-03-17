@@ -9,7 +9,7 @@ namespace RealEstate.Api.Endpoints.Tenants;
 public class UpdateTenantEndpoint: IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
-        => app.MapPut("{id}", HandleAsync)
+        => app.MapPut("/{id}", HandleAsync)
             .WithName("Tenants: Update")
             .WithSummary("Update an existing tenant")
             .WithOrder(2)

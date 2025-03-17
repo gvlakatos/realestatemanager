@@ -12,13 +12,15 @@ public partial class EditPropertyPage : ComponentBase
 
     [Parameter]
     public string Id { get; set; }
-
+    
     #endregion
     
     #region Properties
 
     public bool IsBusy { get; set; } = false;
     public UpdatePropertyRequest InputModel { get; set; } = new();
+    private Guid? SelectedOwnerId;
+    public string? SelectedOwnerName;
 
     #endregion
     
@@ -26,6 +28,9 @@ public partial class EditPropertyPage : ComponentBase
 
     [Inject]
     public IPropertyHandler Handler { get; set; } = null!;
+    
+    [Inject]
+    public IOwnerHandler OwnerHandler { get; set; } = null!;
     
     [Inject]
     public NavigationManager NavigationManager { get; set; } = null!;
@@ -49,6 +54,7 @@ public partial class EditPropertyPage : ComponentBase
         {
             var response = await Handler.GetByIdAsync(request);
             if (response.IsSuccess && response.Data is not null)
+            {
                 InputModel = new UpdatePropertyRequest()
                 {
                     Id = response.Data.Id,
@@ -59,6 +65,23 @@ public partial class EditPropertyPage : ComponentBase
                     Description = response.Data.Description,
                     OwnerId = response.Data.OwnerId
                 };
+
+                try
+                {
+                    var ownerRequest = new GetOwnerByIdRequest { Id = InputModel.OwnerId };
+                    var ownerResponse = await OwnerHandler.GetByIdAsync(ownerRequest);
+
+                    if (ownerResponse.IsSuccess && ownerResponse.Data is not null)
+                    {
+                        SelectedOwnerId = InputModel.OwnerId;
+                        SelectedOwnerName = ownerResponse.Data.Name;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Snackbar.Add(ex.Message, Severity.Error);
+                }
+            }
         }
         catch (Exception ex)
         {
@@ -80,11 +103,12 @@ public partial class EditPropertyPage : ComponentBase
 
         try
         {
+            InputModel.OwnerId = (Guid)SelectedOwnerId;
             var result = await Handler.UpdateAsync(InputModel);
             if (result.IsSuccess)
             {
                 Snackbar.Add("Cadastro atualizado com sucesso!", Severity.Success);
-                NavigationManager.NavigateTo("/owners");
+                NavigationManager.NavigateTo("/properties");
             }
         }
         catch (Exception ex)

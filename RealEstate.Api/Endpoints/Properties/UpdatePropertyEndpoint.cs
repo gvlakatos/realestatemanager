@@ -9,7 +9,7 @@ namespace RealEstate.Api.Endpoints.Properties;
 public class UpdatePropertyEndpoint : IEndpoint
 {
     public static void Map(IEndpointRouteBuilder app)
-        => app.MapPut("", HandleAsync)
+        => app.MapPut("/{id}", HandleAsync)
             .WithName("Properties: Update")
             .WithSummary("Creates a new property")
             .WithOrder(2)

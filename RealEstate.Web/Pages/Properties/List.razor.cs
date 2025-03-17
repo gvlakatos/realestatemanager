@@ -79,7 +79,7 @@ public partial class ListPropertiesPage : ComponentBase
     {
         var result = await DialogService.ShowMessageBox(
             "Atenção",
-            $"Ao prosseguir, o cadastro do imóvel {Title} será excluído. Esta ação é irreversível! Deseja continuar?",
+            $"Ao prosseguir, o cadastro do imóvel será excluído. Esta ação é irreversível! Deseja continuar?",
             yesText: "Excluir",
             cancelText: "Cancelar");
 

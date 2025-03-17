@@ -7,22 +7,26 @@
         <DataAnnotationsValidator />
         
         <MudTextField Class="mb-4" Label="Endereço" @bind-Value="InputModel.Address" For="@(() => InputModel.Address)"/>
-        @* <MudTextField @bind-Value="SelectedOwnerId" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" OnAdornmentClick="onSearchOwnerButtonClicked"></MudTextField> *@
-        <MudTextField @bind-Value="SelectedOwnerName" Label="Nome do Proprietário" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" OnAdornmentClick="onSearchOwnerButtonClicked"></MudTextField>
+        
+        <MudTextField @bind-Value="SelectedOwnerName" Label="Nome do Proprietário" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Search" OnAdornmentClick="onSearchOwnerButtonClicked"/>
+        
         <MudSelect T="EPropertyType" Class="mb-4"  Label="Tipo do Imóvel" AnchorOrigin="Origin.BottomLeft" @bind-Value="InputModel.PropertyType">
             <MudSelectItem T="EPropertyType" Value="EPropertyType.House">Casa</MudSelectItem>
             <MudSelectItem T="EPropertyType" Value="EPropertyType.Apartment">Apartamento</MudSelectItem>
             <MudSelectItem T="EPropertyType" Value="EPropertyType.Commercial">Sala Comercial</MudSelectItem>
         </MudSelect>
+        
         <MudSelect T="ETransactionType" Class="mb-4" Label="Tipo de Contrato" AnchorOrigin="Origin.BottomLeft" @bind-Value="InputModel.TransactionType">
             <MudSelectItem T="ETransactionType" Value="ETransactionType.Rent">Aluguel</MudSelectItem>
             <MudSelectItem T="ETransactionType" Value="ETransactionType.Sale">Venda</MudSelectItem>
         </MudSelect>
+        
         <MudSelect T="EPropertyStatus" Class="mb-4" Label="Tipo de Contrato" AnchorOrigin="Origin.BottomLeft" @bind-Value="InputModel.PropertyStatus">
             <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Available">Disponível</MudSelectItem>
             <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Rented">Alugada</MudSelectItem>
             <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Unavailable">Indisponível</MudSelectItem>
         </MudSelect>
+        
         <MudTextField Label="Descrição" Class="mb-4" Lines="3" @bind-Value="InputModel.Description" For="@(() => InputModel.Description)"/>
         
         <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Salvar</MudButton>
