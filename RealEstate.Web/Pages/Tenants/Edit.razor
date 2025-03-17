@@ -1,0 +1,30 @@
+@page "/tenants/edit/{id}"
+@inherits EditTenantPage
+
+<MudText Typo="Typo.h3">Editar Inquilino</MudText>
+@if (IsBusy)
+{
+    <MudPaper Class="pa-8 mt-4">
+        <MudSkeleton Height="55px"/>
+        <MudSkeleton Height="110x"/>
+        <MudSkeleton Height="55px"/>
+        <MudSkeleton Height="110px"/>
+        <MudSkeleton Height="55px"/>
+        <MudSkeleton Height="110px"/>
+    </MudPaper>
+}
+else
+{
+    <MudPaper Class="pa-8 mt-4">
+        <EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
+            <DataAnnotationsValidator />
+        
+            <MudTextField Label="Nome" @bind-Value="InputModel.Name" For="@(() => InputModel.Name)"/>
+            <MudTextField Label="CPF" @bind-Value="InputModel.CpfCnpj" For="@(() => InputModel.CpfCnpj)"/>
+            <MudTextField Label="Telefone" @bind-Value="InputModel.PhoneNumber" For="@(() => InputModel.PhoneNumber)"/>
+            <MudTextField Label="E-mail" InputType="InputType.Email" @bind-Value="InputModel.Email" For="@(() => InputModel.Email)"/>
+        
+            <MudButton Class="mt-4" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Salvar</MudButton>
+        </EditForm>
+    </MudPaper>
+}
