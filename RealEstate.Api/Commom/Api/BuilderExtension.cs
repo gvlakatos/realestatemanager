@@ -43,6 +43,7 @@ public static class BuilderExtension
     {
         builder.Services.AddTransient<IOwnerHandler, OwnerHandler>();
         builder.Services.AddTransient<ITenantHandler, TenantHandler>();
+        builder.Services.AddTransient<IPropertyHandler, PropertyHandler>();
     }
 
     public static void AddCrossOrigin(this WebApplicationBuilder builder)

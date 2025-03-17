@@ -32,7 +32,7 @@ public class OwnerHandler(IHttpClientFactory httpClientFactory) : IOwnerHandler
 
     public async Task<Response<Owner?>> GetByIdAsync(GetOwnerByIdRequest request)
         => await _client.GetFromJsonAsync<Response<Owner?>>($"v1/owners/{request.Id}")
-        ?? new Response<Owner?>(null, 400, "Error while getting owner");
+           ?? new Response<Owner?>(null, 400, "Error while getting owner");
 
     public async Task<PagedResponse<List<Owner>>> GetAllAsync(GetAllOwnersRequest request) 
         => await _client.GetFromJsonAsync<PagedResponse<List<Owner>>>("v1/owners")

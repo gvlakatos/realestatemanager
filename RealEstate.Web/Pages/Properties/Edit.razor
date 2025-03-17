@@ -1,0 +1,28 @@
+@page "/properties/edit/{id}"
+@inherits EditPropertyPage
+
+<MudText Typo="Typo.h3">Editar Imóvel</MudText>
+<MudPaper Class="pa-8 mt-4">
+    <EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
+        <DataAnnotationsValidator />
+        
+        <MudTextField Label="Endereço" Lines="2" @bind-Value="InputModel.Address" For="@(() => InputModel.Address)"/>
+        <MudSelect T="EPropertyType" Label="Tipo do Imóvel" AnchorOrigin="Origin.BottomCenter" @bind-Value="InputModel.PropertyType">
+            <MudSelectItem T="EPropertyType" Value="EPropertyType.House">Casa</MudSelectItem>
+            <MudSelectItem T="EPropertyType" Value="EPropertyType.Apartment">Apartamento</MudSelectItem>
+            <MudSelectItem T="EPropertyType" Value="EPropertyType.Commercial">Sala Comercial</MudSelectItem>
+        </MudSelect>
+        <MudSelect T="ETransactionType" Label="Tipo de Contrato" AnchorOrigin="Origin.BottomCenter" @bind-Value="InputModel.TransactionType">
+            <MudSelectItem T="ETransactionType" Value="ETransactionType.Rent">Aluguel</MudSelectItem>
+            <MudSelectItem T="ETransactionType" Value="ETransactionType.Sale">Venda</MudSelectItem>
+        </MudSelect>
+        <MudSelect T="EPropertyStatus" Label="Tipo de Contrato" AnchorOrigin="Origin.BottomCenter" @bind-Value="InputModel.PropertyStatus">
+            <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Available">Disponível</MudSelectItem>
+            <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Rented">Alugada</MudSelectItem>
+            <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Unavailable">Indisponível</MudSelectItem>
+        </MudSelect>
+        <MudTextField Label="Descrição" Lines="3" @bind-Value="InputModel.Description" For="@(() => InputModel.Description)"/>
+        
+        <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Salvar</MudButton>
+    </EditForm>
+</MudPaper>

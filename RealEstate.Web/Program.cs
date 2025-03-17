@@ -1,3 +1,4 @@
+using System.Globalization;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
@@ -30,5 +31,10 @@ builder.Services.AddHttpClient(Configuration.HttpClientName, options =>
 builder.Services.AddTransient<IIdentityHandler, IdentityHandler>();
 builder.Services.AddTransient<IOwnerHandler, OwnerHandler>();
 builder.Services.AddTransient<ITenantHandler, TenantHandler>();
+builder.Services.AddTransient<IPropertyHandler, PropertyHandler>();
+
+builder.Services.AddLocalization();
+CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
+CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("pt-BR");
 
 await builder.Build().RunAsync();

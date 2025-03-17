@@ -1,0 +1,71 @@
+@using RealEstate.Core.Handlers
+@using RealEstate.Core.Models
+@using RealEstate.Core.Requests.Owners
+
+<MudDialog>
+    <DialogContent>
+        <MudTable T="Owner" Items="Owners" Hover="true" OnRowClick="RowClickEvent">
+            <HeaderContent>
+                <MudTh>Nome</MudTh>
+                <MudTh>CPF</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd>@context.Name</MudTd>
+                <MudTd>@context.CpfCnpj</MudTd>
+            </RowTemplate>
+        </MudTable>
+    </DialogContent>
+    <DialogActions>
+        <MudButton Color="Color.Primary" OnClick="()=> MudDialog.Close()">Fechar</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    
+    #region Properties
+    
+    public List<Owner> Owners { get; set; } = [];
+    
+    #endregion
+    
+    #region Services
+    
+    [CascadingParameter]
+    IMudDialogInstance MudDialog { get; set; } = default!;
+    
+    [Inject]
+    public IOwnerHandler OwnerHandler { get; set; } = null!;
+
+    [Inject] public ISnackbar Snackbar { get; set; } = null!;
+    
+    #endregion
+    
+    #region Overrides
+    
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            var request = new GetAllOwnersRequest();
+            var result = await OwnerHandler.GetAllAsync(request);
+
+            if (result.IsSuccess)
+                Owners = result.Data ?? [];
+        }
+        catch (Exception exception)
+        {
+            Snackbar.Add("Falha ao retornar lista de proprietários", Severity.Error);
+        }
+    }
+    
+    #endregion
+    
+    #region Methods
+    
+    private void RowClickEvent(TableRowClickEventArgs<Owner> tableRowClickEventArgs)
+    {
+        MudDialog.Close(DialogResult.Ok(tableRowClickEventArgs.Item));
+    }
+    
+    #endregion
+}

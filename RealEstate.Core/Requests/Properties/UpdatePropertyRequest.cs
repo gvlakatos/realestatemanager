@@ -2,7 +2,7 @@ using RealEstate.Core.Enums;
 
 namespace RealEstate.Core.Requests.Properties;
 
-public class CreatePropertyRequest
+public class UpdatePropertyRequest : Request
 {
     public string Address { get; set; } = string.Empty;
     public EPropertyType PropertyType { get; set; } = EPropertyType.House;

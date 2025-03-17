@@ -33,7 +33,8 @@ public class PropertyMapping : IEntityTypeConfiguration<Property>
             .HasConversion<int>();
 
         builder.Property(p => p.Description)
-            .HasColumnType("NVARCHAR");
+            .HasColumnType("NVARCHAR")
+            .HasMaxLength(255);
 
         builder.HasOne(p => p.Owner)
             .WithMany(o => o.Properties)

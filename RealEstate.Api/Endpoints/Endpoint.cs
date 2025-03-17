@@ -1,9 +1,7 @@
-using System.Security.Claims;
-using Microsoft.AspNetCore.Http.HttpResults;
-using Microsoft.AspNetCore.Identity;
 using RealEstate.Api.Commom.Api;
 using RealEstate.Api.Endpoints.Identity;
 using RealEstate.Api.Endpoints.Owners;
+using RealEstate.Api.Endpoints.Properties;
 using RealEstate.Api.Endpoints.Tenants;
 using RealEstate.Api.Models;
 
@@ -36,6 +34,15 @@ public static class Endpoint
             .MapEndpoint<DeleteTenantEndpoint>()
             .MapEndpoint<GetTenantByIdEndpoint>()
             .MapEndpoint<GetAllTenantsEndpoint>();
+
+        endpoints.MapGroup("v1/properties")
+            .WithTags("Properties")
+            .RequireAuthorization()
+            .MapEndpoint<CreatePropertyEndpoint>()
+            .MapEndpoint<UpdatePropertyEndpoint>()
+            .MapEndpoint<DeletePropertyEndpoint>()
+            .MapEndpoint<GetPropertyByIdEnpoint>()
+            .MapEndpoint<GetAllPropertiesEndpoint>();
 
         endpoints.MapGroup("v1/identity")
             .WithTags("Identity")
