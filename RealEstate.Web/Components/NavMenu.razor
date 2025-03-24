@@ -1,3 +1,6 @@
+@using RealEstate.Core.Handlers
+@using RealEstate.Web.Security
+
 <div class="d-flex justify-center pb-8 pt-8">
     <img src="imgs/logo.png" width="200"/>
 </div>
@@ -7,5 +10,40 @@
     <MudNavLink Href="/owners" Match="NavLinkMatch.All">Proprietários</MudNavLink>
     <MudNavLink Href="/tenants" Match="NavLinkMatch.All">Inquilinos</MudNavLink>
     <MudNavLink Href="/properties" Match="NavLinkMatch.All">Imóveis</MudNavLink>
-    <MudNavLink Href="/logout" Match="NavLinkMatch.All">Sair</MudNavLink>
+    <MudNavLink Match="NavLinkMatch.All" OnClick="OnLogoutButtonClicked">Sair</MudNavLink>
 </MudNavMenu>
+
+@code {
+    
+    [Inject] 
+    public ICookieAuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
+    
+    [Inject]
+    public IIdentityHandler Handler { get; set; } = null!;
+    
+    [Inject]
+    public IDialogService DialogService { get; set; } = null!;
+    
+    public async void OnLogoutButtonClicked()
+    {
+        var result = await DialogService.ShowMessageBox(
+            "Atenção",
+            $"Realmente deseja encerrar sua sessão?",
+            yesText: "Sim",
+            cancelText: "Cancelar");
+
+        if (result is true)
+            await LogoutAsync();
+    }
+
+    private async Task LogoutAsync()
+    {
+        if (await AuthenticationStateProvider.CheckAuthenticatedAsync())
+        {
+            await Handler.LogoutAsync();
+            await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            AuthenticationStateProvider.NotifyAuthenticationStateChanged();
+        }
+    }
+
+}

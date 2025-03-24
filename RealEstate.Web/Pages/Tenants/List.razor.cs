@@ -75,7 +75,7 @@ public partial class ListTenantsPage : ComponentBase
         return false;
     };
 
-    public async void onDeleteButtonClicked(Guid id, string Title)
+    public async void OnDeleteButtonClicked(Guid id, string Title)
     {
         var result = await DialogService.ShowMessageBox(
             "Atenção",
@@ -89,7 +89,7 @@ public partial class ListTenantsPage : ComponentBase
         StateHasChanged();
     }
 
-    public async Task OnDeleteAsync(Guid id)
+    private async Task OnDeleteAsync(Guid id)
     {
         try
         {

@@ -19,7 +19,7 @@
             <CellTemplate>
                 <MudStack Row>
                     <MudIconButton Icon="@Icons.Material.Filled.Edit" Href="@($"/tenants/edit/{context.Item.Id}")" Color="Color.Primary"></MudIconButton>
-                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="() => onDeleteButtonClicked(context.Item.Id, context.Item.Name)"></MudIconButton>
+                    <MudIconButton Icon="@Icons.Material.Filled.Delete" Color="Color.Error" OnClick="() => OnDeleteButtonClicked(context.Item.Id, context.Item.Name)"></MudIconButton>
                 </MudStack>
             </CellTemplate>
         </TemplateColumn>
