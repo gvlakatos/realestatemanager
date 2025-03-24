@@ -16,7 +16,7 @@ public partial class CreatePropertyPage : ComponentBase
     public bool IsBusy { get; set; } = false;
     public CreatePropertyRequest InputModel { get; set; } = new();
     public List<Owner> Owners { get; set; } = [];
-    private Guid? SelectedOwnerId;
+    public Guid? SelectedOwnerId;
     public string? SelectedOwnerName;
 
     #endregion
@@ -74,7 +74,7 @@ public partial class CreatePropertyPage : ComponentBase
 
         try
         {
-            InputModel.OwnerId = (Guid)SelectedOwnerId;
+            InputModel.OwnerId = (Guid)SelectedOwnerId!;
             var result = await Handler.CreateAsync(InputModel);
             if (result.IsSuccess)
             {
@@ -94,7 +94,7 @@ public partial class CreatePropertyPage : ComponentBase
         }
     }
 
-    public async Task onSearchOwnerButtonClicked()
+    public async Task OnSearchOwnerButtonClicked()
     {
         var parameters = new DialogParameters<OwnerSelectionDialog>();
         var dialog = await DialogService.ShowAsync<OwnerSelectionDialog>("Selecionar Proprietário", parameters);
@@ -102,8 +102,8 @@ public partial class CreatePropertyPage : ComponentBase
         
         if (result?.Data is not null)
         {
-            SelectedOwnerId = result.Data.As<Owner>().Id;
-            SelectedOwnerName = result.Data.As<Owner>().Name;
+            SelectedOwnerId = result.Data.As<Owner>()?.Id;
+            SelectedOwnerName = result.Data.As<Owner>()?.Name;
         }
     }
     #endregion

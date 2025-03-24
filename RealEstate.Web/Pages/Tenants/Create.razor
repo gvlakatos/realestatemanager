@@ -1,15 +1,15 @@
 @page "/tenants/create"
 @inherits CreateTenantPage
 
-<MudText Typo="Typo.h3">Novo Proprietário</MudText>
+<MudText Typo="Typo.h3">Novo Inquilino</MudText>
 <MudPaper Class="pa-8 mt-4">
     <EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
         <DataAnnotationsValidator />
         
-        <MudTextField Label="Nome" @bind-Value="InputModel.Name" For="@(() => InputModel.Name)"/>
-        <MudTextField Label="CPF" @bind-Value="InputModel.CpfCnpj" For="@(() => InputModel.CpfCnpj)"/>
-        <MudTextField Label="Telefone" @bind-Value="InputModel.PhoneNumber" For="@(() => InputModel.PhoneNumber)"/>
-        <MudTextField Label="E-mail" InputType="InputType.Email" @bind-Value="InputModel.Email" For="@(() => InputModel.Email)"/>
+        <MudTextField Class="mb-4" Label="Nome" @bind-Value="InputModel.Name" For="@(() => InputModel.Name)"/>
+        <MudTextField Class="mb-4" Label="CPF" @bind-Value="InputModel.CpfCnpj" For="@(() => InputModel.CpfCnpj)"/>
+        <MudTextField Class="mb-4" Label="Telefone" @bind-Value="InputModel.PhoneNumber" For="@(() => InputModel.PhoneNumber)"/>
+        <MudTextField Class="mb-4" Label="E-mail" InputType="InputType.Email" @bind-Value="InputModel.Email" For="@(() => InputModel.Email)"/>
         
         <MudButton Class="mt-4" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Salvar</MudButton>
     </EditForm>

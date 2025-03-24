@@ -80,7 +80,7 @@ public partial class EditTenantPage : ComponentBase
             var result = await Handler.UpdateAsync(InputModel);
             if (result.IsSuccess)
             {
-                Snackbar.Add("Cadastro atualizado com sucesso!", Severity.Success);
+                Snackbar.Add(result.Message, Severity.Success);
                 NavigationManager.NavigateTo("/tenants");
             }
         }
