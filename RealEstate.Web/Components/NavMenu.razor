@@ -1,6 +1,3 @@
-@using RealEstate.Core.Handlers
-@using RealEstate.Web.Security
-
 <div class="d-flex justify-center pb-8 pt-8">
     <img src="imgs/logo.png" width="200"/>
 </div>
@@ -14,36 +11,18 @@
 </MudNavMenu>
 
 @code {
-    
-    [Inject] 
-    public ICookieAuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
-    
-    [Inject]
-    public IIdentityHandler Handler { get; set; } = null!;
-    
     [Inject]
     public IDialogService DialogService { get; set; } = null!;
     
     public async void OnLogoutButtonClicked()
     {
-        var result = await DialogService.ShowMessageBox(
-            "Atenção",
-            $"Realmente deseja encerrar sua sessão?",
-            yesText: "Sim",
-            cancelText: "Cancelar");
-
-        if (result is true)
-            await LogoutAsync();
-    }
-
-    private async Task LogoutAsync()
-    {
-        if (await AuthenticationStateProvider.CheckAuthenticatedAsync())
+        var parameters = new DialogParameters<LogoutDialog>
         {
-            await Handler.LogoutAsync();
-            await AuthenticationStateProvider.GetAuthenticationStateAsync();
-            AuthenticationStateProvider.NotifyAuthenticationStateChanged();
-        }
+            { x => x.ContentText, "Realmente deseja encerrar a sua sessão?" },
+            { x => x.ButtonText, "Sair" },
+            { x => x.Color, Color.Error }
+        };
+        
+        await DialogService.ShowAsync<LogoutDialog>("Logout", parameters);
     }
-
 }

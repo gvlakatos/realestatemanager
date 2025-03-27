@@ -1,4 +1,5 @@
 @page "/properties"
+@using RealEstate.Core.Helpers
 @inherits ListPropertiesPage
 
 <MudText Typo="Typo.h3">Imóveis</MudText>
@@ -6,7 +7,7 @@
     <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.TwoTone.Add" Href="/properties/create">Adicionar</MudButton>
 </div>
 
-<MudDataGrid Items="@Properties" Class="mt-4" Filterable="true" QuickFilter="Filter" Hideable="true">
+<MudDataGrid Items="@Properties" Class="mt-4" Filterable="false" QuickFilter="Filter" Hideable="true">
     <ToolBarContent>
         <MudText Typo="Typo.h6">Imóveis</MudText>
         <MudSpacer/>
@@ -15,7 +16,10 @@
     <Columns>
         <PropertyColumn Property="x => x.Address" Title="Endereço"/>
         <PropertyColumn Property="x => x.Description" Title="Descrição"/>
-        <TemplateColumn Class="d-flex justify-end">
+        
+        <PropertyColumn Property="x => x.TransactionType" Title="Tipo de Contrato"/>
+        <PropertyColumn Property="x => x.PropertyStatus" Title="Status"/>
+        <TemplateColumn>
             <CellTemplate>
                 <MudStack Row>
                     <MudIconButton Icon="@Icons.Material.Filled.Edit" Href="@($"/properties/edit/{context.Item.Id}")" Color="Color.Primary"></MudIconButton>

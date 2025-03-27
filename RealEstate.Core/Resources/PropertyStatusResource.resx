@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+    <data name="Available" xml:space="preserve">
+        <value>Available</value>
+    </data>
+    <data name="Rented" xml:space="preserve">
+        <value>Rented</value>
+    </data>
+    <data name="Unavailable" xml:space="preserve">
+        <value>Unavailable</value>
+    </data>
+</root>

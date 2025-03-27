@@ -58,19 +58,19 @@ public partial class ListPropertiesPage : ComponentBase
     
     #region Methods
 
-    public Func<Property, bool> Filter => owner =>
+    public Func<Property, bool> Filter => property =>
     {
         if (string.IsNullOrWhiteSpace(SearchTerm))
             return true;
 
-        if (owner.Address.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))
+        if (property.Address.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))
             return true;
         
-        // if (owner.CpfCnpj.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))
-        //     return true;
-        //
-        // if (owner.Email.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))
-        //     return true;
+        if (property.PropertyStatus.ToString().Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))
+            return true;
+        
+        if (property.TransactionType.ToString().Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))
+            return true;
 
         return false;
     };

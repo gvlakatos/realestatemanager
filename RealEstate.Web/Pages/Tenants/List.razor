@@ -15,7 +15,7 @@
     <Columns>
         <PropertyColumn Property="x => x.Name" Title="Nome"/>
         <PropertyColumn Property="x => x.CpfCnpj" Title="CPF"/>
-        <TemplateColumn Class="d-flex justify-end">
+        <TemplateColumn>
             <CellTemplate>
                 <MudStack Row>
                     <MudIconButton Icon="@Icons.Material.Filled.Edit" Href="@($"/tenants/edit/{context.Item.Id}")" Color="Color.Primary"></MudIconButton>

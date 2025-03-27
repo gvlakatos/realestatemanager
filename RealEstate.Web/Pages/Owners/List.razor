@@ -6,16 +6,16 @@
     <MudButton Variant="Variant.Filled" Color="Color.Primary" StartIcon="@Icons.Material.TwoTone.Add" Href="/owners/create">Adicionar</MudButton>
 </div>
 
-<MudDataGrid Items="@Owners" Class="mt-4" Filterable="true" QuickFilter="Filter" Hideable="true">
+<MudDataGrid Items="@Owners" Class="mt-4" Filterable="false" QuickFilter="Filter" Hideable="false">
     <ToolBarContent>
         <MudText Typo="Typo.h6">Proprietários</MudText>
         <MudSpacer/>
         <MudTextField @bind-Value="SearchTerm" Placeholder="Filtrar..." Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Immediate="true" IconSize="Size.Medium" Class="mt-0"></MudTextField>
     </ToolBarContent>
     <Columns>
-        <PropertyColumn Property="x => x.Name" Title="Nome"/>
+        <PropertyColumn Property="x => x.Name" Title="NOME"/>
         <PropertyColumn Property="x => x.CpfCnpj" Title="CPF"/>
-        <TemplateColumn Class="d-flex justify-end">
+        <TemplateColumn>
             <CellTemplate>
                 <MudStack Row>
                     <MudIconButton Icon="@Icons.Material.Filled.Edit" Href="@($"/owners/edit/{context.Item.Id}")" Color="Color.Primary"></MudIconButton>

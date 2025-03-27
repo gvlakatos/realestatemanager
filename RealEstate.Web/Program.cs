@@ -1,10 +1,12 @@
 using System.Globalization;
+using System.Reflection;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.AspNetCore.Components.Web;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
 using MudBlazor;
 using MudBlazor.Services;
 using RealEstate.Core.Handlers;
+using RealEstate.Core.Helpers;
 using RealEstate.Web;
 using RealEstate.Web.Handlers;
 using RealEstate.Web.Security;
@@ -40,5 +42,7 @@ builder.Services.AddTransient<IPropertyHandler, PropertyHandler>();
 builder.Services.AddLocalization();
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");
 CultureInfo.DefaultThreadCurrentUICulture = new CultureInfo("pt-BR");
+
+EnumHelper.Configure(Assembly.GetExecutingAssembly(), "RealEstate.Core.Resources.PropertyStatusResource");
 
 await builder.Build().RunAsync();

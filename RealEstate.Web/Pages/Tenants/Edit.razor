@@ -19,12 +19,13 @@ else
         <EditForm Model="@InputModel" OnValidSubmit="OnValidSubmitAsync">
             <DataAnnotationsValidator />
         
-            <MudTextField Label="Nome" @bind-Value="InputModel.Name" For="@(() => InputModel.Name)"/>
-            <MudTextField Label="CPF" @bind-Value="InputModel.CpfCnpj" For="@(() => InputModel.CpfCnpj)"/>
-            <MudTextField Label="Telefone" @bind-Value="InputModel.PhoneNumber" For="@(() => InputModel.PhoneNumber)"/>
-            <MudTextField Label="E-mail" InputType="InputType.Email" @bind-Value="InputModel.Email" For="@(() => InputModel.Email)"/>
+            <MudTextField Class="mb-4" Label="Nome" @bind-Value="InputModel.Name" For="@(() => InputModel.Name)"/>
+            <MudTextField Class="mb-4" Label="CPF" @bind-Value="InputModel.CpfCnpj" For="@(() => InputModel.CpfCnpj)"/>
+            <MudTextField Class="mb-4" Label="Telefone" @bind-Value="InputModel.PhoneNumber" For="@(() => InputModel.PhoneNumber)"/>
+            <MudTextField Class="mb-8" Label="E-mail" InputType="InputType.Email" @bind-Value="InputModel.Email" For="@(() => InputModel.Email)"/>
         
-            <MudButton Class="mt-4" ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Salvar</MudButton>
+            <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Salvar</MudButton>
+            <MudButton Href="/tenants" Variant="Variant.Filled" Color="Color.Inherit">Cancelar</MudButton>
         </EditForm>
     </MudPaper>
 }

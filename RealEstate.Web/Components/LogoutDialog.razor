@@ -1,0 +1,47 @@
+@using RealEstate.Core.Handlers
+@using RealEstate.Web.Security
+
+<MudDialog>
+    <DialogContent>
+        <MudText>@ContentText</MudText>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">Cancelar</MudButton>
+        <MudButton Color="@Color" Variant="Variant.Filled" OnClick="(async () => await LogoutAsync())">@ButtonText</MudButton>
+    </DialogActions>
+</MudDialog>
+
+@code {
+    [CascadingParameter]
+    private IMudDialogInstance MudDialog { get; set; }
+
+    [Parameter]
+    public string ContentText { get; set; }
+
+    [Parameter]
+    public string ButtonText { get; set; }
+    
+    [Parameter]
+    public Color Color { get; set; }
+    
+    [Inject] 
+    public ICookieAuthenticationStateProvider AuthenticationStateProvider { get; set; } = null!;
+    
+    [Inject]
+    public IIdentityHandler Handler { get; set; } = null!;
+
+    // private void Submit() => MudDialog.Close(DialogResult.Ok(true));
+
+    private void Cancel() => MudDialog.Cancel();
+    
+    private async Task LogoutAsync()
+    {
+        if (await AuthenticationStateProvider.CheckAuthenticatedAsync())
+        {
+            await Handler.LogoutAsync();
+            await AuthenticationStateProvider.GetAuthenticationStateAsync();
+            AuthenticationStateProvider.NotifyAuthenticationStateChanged();
+        }
+    }
+
+}
