@@ -21,11 +21,11 @@
             <MudSelectItem T="ETransactionType" Value="ETransactionType.Sale">Venda</MudSelectItem>
         </MudSelect>
         
-        <MudSelect T="EPropertyStatus" Class="mb-4" Label="Tipo de Contrato" AnchorOrigin="Origin.BottomLeft" @bind-Value="InputModel.PropertyStatus">
-            <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Available">Disponível</MudSelectItem>
-            <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Rented">Alugada</MudSelectItem>
-            <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Unavailable">Indisponível</MudSelectItem>
-        </MudSelect>
+        @* <MudSelect T="EPropertyStatus" Class="mb-4" Label="Tipo de Contrato" AnchorOrigin="Origin.BottomLeft" @bind-Value="InputModel.PropertyStatus"> *@
+        @*     <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Available">Disponível</MudSelectItem> *@
+        @*     <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Rented">Alugada</MudSelectItem> *@
+        @*     <MudSelectItem T="EPropertyStatus" Value="EPropertyStatus.Unavailable">Indisponível</MudSelectItem> *@
+        @* </MudSelect> *@
         
         <MudTextField Label="Descrição" Class="mb-4" Lines="3" @bind-Value="InputModel.Description" For="@(() => InputModel.Description)"/>
         

@@ -13,7 +13,7 @@ public class GetAllPropertiesEndpoint : IEndpoint
     public static void Map(IEndpointRouteBuilder app)
         => app.MapGet("", HandleAsync)
             .WithName("Properties: Get All")
-            .WithSummary("Retrieves all owners")
+            .WithSummary("Retrieves all properties")
             .WithOrder(5)
             .Produces<PagedResponse<List<Property>?>>();
     

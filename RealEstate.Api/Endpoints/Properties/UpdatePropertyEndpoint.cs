@@ -11,7 +11,7 @@ public class UpdatePropertyEndpoint : IEndpoint
     public static void Map(IEndpointRouteBuilder app)
         => app.MapPut("/{id}", HandleAsync)
             .WithName("Properties: Update")
-            .WithSummary("Creates a new property")
+            .WithSummary("Updates an existing property")
             .WithOrder(2)
             .Produces<Response<Property?>>();
     

@@ -18,6 +18,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>PropertyStatusResource.pt-BR.resx</DependentUpon>
     </Compile>
+    <Compile Remove="Models\Reports\Owner.cs" />
+    <Compile Remove="Requests\Reports\GetCustomerByType.cs" />
   </ItemGroup>
 
   <ItemGroup>

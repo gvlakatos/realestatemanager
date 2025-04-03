@@ -38,6 +38,7 @@ builder.Services.AddTransient<IIdentityHandler, IdentityHandler>();
 builder.Services.AddTransient<IOwnerHandler, OwnerHandler>();
 builder.Services.AddTransient<ITenantHandler, TenantHandler>();
 builder.Services.AddTransient<IPropertyHandler, PropertyHandler>();
+builder.Services.AddTransient<IReportHandler, ReportHandler>();
 
 builder.Services.AddLocalization();
 CultureInfo.DefaultThreadCurrentCulture = new CultureInfo("pt-BR");

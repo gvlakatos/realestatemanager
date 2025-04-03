@@ -47,6 +47,7 @@ public class OwnerHandler(AppDbContext context) : IOwnerHandler
             owner.PhoneNumber = request.PhoneNumber;
             owner.Email = request.Email;
             owner.UpdatedAt = DateTime.UtcNow;
+            owner.IsActive = request.IsActive;
 
             context.Owners.Update(owner);
             await context.SaveChangesAsync();

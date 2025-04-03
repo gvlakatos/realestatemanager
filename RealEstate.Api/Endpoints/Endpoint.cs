@@ -2,6 +2,7 @@ using RealEstate.Api.Commom.Api;
 using RealEstate.Api.Endpoints.Identity;
 using RealEstate.Api.Endpoints.Owners;
 using RealEstate.Api.Endpoints.Properties;
+using RealEstate.Api.Endpoints.Reports;
 using RealEstate.Api.Endpoints.Tenants;
 using RealEstate.Api.Models;
 
@@ -52,6 +53,13 @@ public static class Endpoint
             .WithTags("Identity")
             .MapEndpoint<LogoutEndpoint>()
             .MapEndpoint<GetRolesEndpoint>();
+
+        endpoints.MapGroup("v1/reports")
+            .WithTags("Reports")
+            .RequireAuthorization()
+            .MapEndpoint<GetActiveOwnersEndpoint>()
+            .MapEndpoint<GetActiveTenantsEndpoint>()
+            .MapEndpoint<GetPropertiesByStatusEndpoint>();
     }
 
     private static IEndpointRouteBuilder MapEndpoint<TEndpoint>(this IEndpointRouteBuilder app)
